@@ -57,8 +57,8 @@ Ball.prototype.collisionDetect = function(){
 
 let balls = [];
 while(balls.length < 5){
-    let x = random(0, width);
-    let y = random(0, height);
+    let x = random(0 + size, width - size);
+    let y = random(0 + size, height - size);
     let velX = random(-7, 7);
     let velY = random(-7, 7);
     let color = `rgb(${random(0, 255)}, ${random(0, 255)}, ${random(0, 255)})`;
