@@ -20,7 +20,7 @@ function Ball(x, y, velX, velY, color, size){
 Ball.prototype.draw = function(){
     ctx.beginPath();
     ctx.fillStyle = this.color;
-    ctx.arc(this.x, this.y, this.size, 0, 2  * Math.PI);
+    ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
     ctx.fill();
 }
 
@@ -56,20 +56,20 @@ Ball.prototype.collisionDetect = function(){
 }
 
 let balls = [];
+while(balls.length < 5){
+    let x = random(0, width);
+    let y = random(0, height);
+    let velX = random(-7, 7);
+    let velY = random(-7, 7);
+    let color = `rgb(${random(0, 255)}, ${random(0, 255)}, ${random(0, 255)})`;
+    let size = random(10, 20);
+    let ball = new Ball(x, y, velX, velY, color, size);
+    balls.push(ball);
+}
 
 function loop(){
     ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
     ctx.fillRect(0, 0, width, height);
-    while(balls.length < 25){
-        let x = random(0, width);
-        let y = random(0, height);
-        let velX = random(-7, 7);
-        let velY = random(-7, 7);
-        let color = `rgb(${random(0, 255)}, ${random(0, 255)}, ${random(0, 255)})`;
-        let size = random(10, 20);
-        let ball = new Ball(x, y, velX, velY, color, size);
-        balls.push(ball);
-    }
     balls.forEach(x => {
         x.draw();
         x.update();
